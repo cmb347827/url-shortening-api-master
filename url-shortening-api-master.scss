@@ -11,10 +11,11 @@ $colors: (
     Grayish Violet: hsl(257, 7%, 63%),
     Very Dark Blue: hsl(255, 11%, 22%),
     Very Dark Violet: hsl(260, 8%, 14%),
+    White: hsl(150,100%,100%)
 );
 
 $fallback-colors: (
-    
+    Cyan , MidnightBlue, Red, LightGray,Thistle, DarkSlateBlue,Indigo,Snow
 );
 
 @mixin background($url,$position:auto,$size:auto,$repeat:no-repeat,$fixed:fixed,$color:white){
@@ -48,7 +49,7 @@ $fallback-colors: (
 
 html,
 body {
-  //@include bg-color(map-get($colors,White),nth($fallback-colors,5));
+     @include bg-color(map-get($colors,White),nth($fallback-colors,8));
   // @include font-color(map-get($colors,Black),nth($fallback-colors,6));
   font: {
      size: $font_size-18;
@@ -62,15 +63,12 @@ body {
 .show{
     display:flex;
 }
-.relativeouter{
-  position: relative;
-}
-.hide-in-mobile{
+/*.hide-in-mobile{
   display:none;
   @media screen and(min-width:768px){
      display:block;
   }
-}
+}*/
 
 .top-z-index{
   //needed for z-index.
@@ -98,8 +96,19 @@ body {
     position:relative;
 }
 .custom-nav{
-
+    z-index:99;
+    height:50vh;
+    width: 100vw;
+    opacity:1;
+    position:absolute;
+    top:0;
+    left:0;
+    @include bg-color(map-get($colors,Very Dark Blue),nth($fallback-colors,6));
+    a{
+      @include font-color(map-get($colors,White),nth($fallback-colors,8));
+    }
 }
+
 .order-1{
     .order-zero{
         order:0;
@@ -177,7 +186,9 @@ body {
         
         }
         
-        
+        section{
+             margin-bottom: 1em;
+        }
         &__firstChild{
              #first-text{
                  text-align:center;

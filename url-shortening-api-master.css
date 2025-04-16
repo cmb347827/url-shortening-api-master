@@ -121,6 +121,8 @@
 
 html,
 body {
+  background-color: Snow;
+  background-color: white;
   font-size: 18px;
   font-weight: 400;
   font-family: "Rubik", sans-serif; }
@@ -131,15 +133,12 @@ body {
 .show {
   display: flex; }
 
-.relativeouter {
-  position: relative; }
-
-.hide-in-mobile {
-  display: none; }
-  @media screen and (min-width: 768px) {
-    .hide-in-mobile {
-      display: block; } }
-
+/*.hide-in-mobile{
+  display:none;
+  @media screen and(min-width:768px){
+     display:block;
+  }
+}*/
 .top-z-index {
   position: relative;
   z-index: 1;
@@ -161,6 +160,20 @@ body {
 
 .relativeouter {
   position: relative; }
+
+.custom-nav {
+  z-index: 99;
+  height: 50vh;
+  width: 100vw;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: DarkSlateBlue;
+  background-color: #35323e; }
+  .custom-nav a {
+    color: Snow;
+    color: white; }
 
 .order-1 .order-zero {
   order: 0; }
@@ -206,6 +219,8 @@ body {
     @media screen and (min-width: 768px) {
       .container header #navbarCollapse li a {
         font-size: 1em; } }
+.container section {
+  margin-bottom: 1em; }
 .container__firstChild #first-text {
   text-align: center; }
   @media screen and (min-width: 767px) {

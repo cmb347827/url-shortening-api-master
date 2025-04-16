@@ -25,8 +25,8 @@
                         </nav> 
                       </div>
                       <div class="display-flex">
-                          <button type="button">Login</button>
-                          <button type="button">Sign Up</button>
+                          <button class="btn" type="button">Login</button>
+                          <button class='btn' type="button">Sign Up</button>
                       </div>
                   </div>
                   
@@ -43,9 +43,9 @@
                           <li class="text-center"><hr><a href="#" class=" ">Features</a><hr></li>
                           <li class="text-center"><a href="#" class="">Pricing</a><hr></li>
                           <li class="text-center"><a href="#" class=" ">Contact</a><hr></li>
-                          <li  class="display-flex direction-column">
+                          <li class="text-center">
                              <button type="button">Login</button>
-                             <button type="button">Sign Up</button>
+                             <button class="btn green" type="button">Sign Up</button>
                           </li>
                       </ul>
                           
@@ -68,9 +68,9 @@
                 
             </section>
             <section >
-                 <form method="post" action="">
+                 <form method="post" action="" class="display-flex justify-content-center">
                       <label class='sr-only' for="url">Enter the url to be shortened</label>
-                      <input placeholder=" Shorten a link here..." type="text" id="url" name="url"  minlength="4" maxlength="8" size="10" />
+                      <input placeholder=" Shorten a link here..." type="text" id="url" name="url"  minlength="1000"  class="me-1" />
                       <button type="submit">Shorten It!</button>
                  </form>
 
