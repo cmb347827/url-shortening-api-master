@@ -139,6 +139,7 @@ body {
 	width: 1px !important;
 	white-space: nowrap !important;            
 }
+
 .container{
       //cutoff the blue shape on the right/left side
       
@@ -150,12 +151,13 @@ body {
         //@include font-color(map-get($colors,White),nth($fallback-colors,5));
         //@include bg-color(map-get($colors,Soft Blue),nth($fallback-colors,1));
       }
+      nav ul {
+        list-style-type:none;
+        width: 100%;
+      } 
       
       header{
-            ul li{
-              list-style-type:none;
-              width: 100%;
-            } 
+  
             a{
               text-decoration:none;
               color: black;
@@ -222,7 +224,7 @@ body {
              
           
       
-      footer{
+      #about-me{
         
         @media screen and(min-width:768px){
           position:relative;

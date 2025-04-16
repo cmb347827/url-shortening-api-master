@@ -26,12 +26,20 @@
 .justify-content-space-between{
     justify-content: space-between;
 }
+.justify-content-center{
+    justify-content: center;
+}
 .justify-content-space-around{
     justify-content:space-around;
 }
 .justify-content-md-space-between{
     @media screen and(min-width:768px){
         justify-content: space-between;
+    }
+}
+.justify-content-md-center{
+    @media screen and(min-width:768px){
+        justify-content: center;
     }
 }
 .justify-content-md-space-around{
@@ -52,6 +60,9 @@
 }
 .align-items-stretch{
     align-items:stretch;
+}
+.align-content-center{
+    align-content:center;
 }
 .align-content-stretch{
     align-content:stretch;
