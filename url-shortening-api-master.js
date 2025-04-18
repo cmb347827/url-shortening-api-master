@@ -8,15 +8,17 @@ const data={
 	input: document.getElementById('url'),
 	url:document.getElementById('get_url'),
     urlReg: /https:\/\/(\w{1,}\.){1,}\w{1,}/,
+	urlRegTwo:/[a-z]{3,255}:\/\/([a-z0-9]{0,63}(\.|\/|-)[a-z0-9]{0,63})+/,
 }
-const getInput=(event)=>{
-	
+
+const validateURL=(event)=>{
+	event.preventDefault();
+	const result = data.urlRegTwo.test(data.input.value);
+	console.log(result);
 }
 
 function addListener(){
-	data.url.addEventListener('click',getInput);
-	
-	
+	data.url.addEventListener('click',validateURL);
 }
 
 $(window).on('load',function(){
