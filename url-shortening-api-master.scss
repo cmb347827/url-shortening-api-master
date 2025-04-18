@@ -155,7 +155,7 @@ body {
         list-style-type:none;
         width: 100%;
       } 
-      
+
       header{
   
             a{
@@ -189,7 +189,7 @@ body {
         }
         
         section{
-             margin-bottom: 1em;
+             padding-bottom: 1em;
         }
         &__firstChild{
              #first-text{
@@ -210,15 +210,34 @@ body {
         }
         
         &__secondChild{
-           
+            #url{
+                width: 50em;
+            }
           
         }
         &__thirdChild{
           
            
         }   
-        
-        
+        &__fourthChild{
+              background:hsl(257, 27%, 26%) url('./images/bg-boost-mobile.svg') top center/100% 100%;
+              @include font-color(map-get($colors,White),nth($fallback-colors,8));
+              padding: 1em;
+              @media screen and(min-width:768px){
+                  background:hsl(257, 27%, 26%) url('./images/bg-boost-desktop.svg') top center/100% 100%;
+                  padding:2em;
+              }
+        }
+        &__fifthChild{
+             padding: 1em;
+             @include bg-color(map-get($colors,Very Dark Violet),nth($fallback-colors,7));
+             li ,a{
+              @include font-color(map-get($colors,White),nth($fallback-colors,8));
+             }
+             @media screen and(min-width: 768px){
+                 padding: 2em;
+             }
+        }
     
         
              

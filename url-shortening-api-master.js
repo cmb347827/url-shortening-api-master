@@ -4,21 +4,18 @@ $(window).resize(function(){
 	location.reload();
 });
 
-
-
+const data={
+	input: document.getElementById('url'),
+	url:document.getElementById('get_url'),
+    urlReg: /https:\/\/(\w{1,}\.){1,}\w{1,}/,
+}
+const getInput=(event)=>{
+	
+}
 
 function addListener(){
+	data.url.addEventListener('click',getInput);
 	
-	/*[...document.querySelectorAll('.accordion-trigger')].forEach(function(btn) {
-		btn.addEventListener('click', function() {
-			const exp= btn.getAttribute('aria-expanded');
-			if(exp==='true'){
-				btn.setAttribute('aria-expanded','false');
-			}else{
-				btn.setAttribute('aria-expanded','true');
-			}
-		});
-	});*/
 	
 }
 
@@ -28,15 +25,6 @@ $(window).on('load',function(){
 
 	$("#menubutton").on("click", function(){
         //menu is collapsed/closed, toggle open/close icon.
-		/*if($('#open').hasClass('hidden')){
-			$('#open').removeClass('hidden');
-			$('#close').addClass('hidden');
-			$('#nav').removeClass('custom-nav');
-		}else{
-			$('#open').addClass('hidden');
-			$('#close').removeClass('hidden');
-			$('#nav').addClass('custom-nav');
-		}*/
 		$('#open').toggleClass('hidden');
 		$('#close').toggleClass('hidden');
 		$('#nav').toggleClass('custom-nav');
