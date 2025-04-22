@@ -53,7 +53,8 @@ Users should be able to:
 
 ### What I learned
 
-- I decided to go by a url format help site, as it's been a while since I looked at url formats.
+- I decided to go by a url format help site, as it's been a while since I looked at url formats. I used the recommend format to come up with the regular expression that is used to detect if the url is valid format. See link 1.
+-
 
 
   

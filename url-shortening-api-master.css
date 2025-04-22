@@ -242,6 +242,8 @@ body {
     max-height: 75%; } }
 .container__secondChild #url {
   width: 50em; }
+.container__secondChild ul {
+  list-style-type: none; }
 .container__fourthChild {
   background: #3b3054 url("./images/bg-boost-mobile.svg") top center/100% 100%;
   color: Snow;
