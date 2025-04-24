@@ -54,7 +54,8 @@ Users should be able to:
 ### What I learned
 
 - I decided to go by a url format help site, as it's been a while since I looked at url formats. I used the recommend format to come up with the regular expression that is used to detect if the url is valid format. See link 1.
--
+- I tried to find ways to integrate my code with the cleanuri.api. I tried using fetch() as well as XMLHttpRequest() , both caused CORS errors. Then I read about using a proxy server (for instance, CORS anywhere) to circumvent the CORS error.
+  This did not work either as also CORS anywhere was no longer functional. See link 2.
 
 
   
@@ -66,6 +67,8 @@ Users should be able to:
 ### Useful resources
 
  [url format guidelines](https://help.zscaler.com/zia/url-format-guidelines)
+ [CORS anywhere](https://github.com/Rob--W/cors-anywhere/issues/301)
+
 
 
 

@@ -1,5 +1,6 @@
 'use strict'; 
 
+
 $(window).resize(function(){
 	location.reload();
 });
@@ -20,32 +21,47 @@ const data={
 	input: document.getElementById('url'),
 	url:document.getElementById('get_url'),
     //urlReg: /https:\/\/(\w{1,}\.){1,}\w{1,}/,
-	urlRegTwo:/[a-z]{3,255}:\/\/([a-z0-9]{0,63}(\.|\/|-)[a-z0-9]{0,63}){1,2024}/,
+	urlRegTwo:/[a-z]{3,255}:\/\/([a-z0-9]{0,63}(\.|\/|-|%20|\+)[a-z0-9]{0,63}){1,2024}/,
 	urlData : JSON.parse(localStorage.getItem("url")) || [],
 	urls_container: document.getElementById('urls_container'),
+	shortUrl:'',
 }
-const shortenUrl=(url)=>{
 
-  return 'shorten';
+const fetchLink=()=>{
+	const api = new XMLHttpRequest();
+	const cleanUri ="https://cleanuri.com/api/v1/shorten";
+	api.open("POST", cleanUri);
+	api.send(data.input.value);
+	api.onload = (e) =>{
+	   data.shortUrl = api.responseText;
+	   console.log(data.shortUrl);
+	};
 }
+
+const returnShort=()=>{
+	let shorten=fetchLink();
+	const inputUrl={
+		old_url : data.input.value,
+		shorten_url: shorten,
+	}
+	data.urlData.push(inputUrl);
+	saveToStorage('url',data.urlData);
+	let tempId= 'tempId';
+	data.urls_container.innerHTML += `
+		<li class='display-flex justify-content-center'>
+			<p class='me-2-md me-1'>${inputUrl.old_url} : ${inputUrl.shorten_url}</p>
+			<button id='tempId' class='js-copy-btn' type='button'>Copy</button>
+		</li>`;
+	addListener();
+}
+
 const validateURL=(event)=>{
 	event.preventDefault();
-	const valid_old = data.urlRegTwo.test(data.input.value);
+	const valid_old = data.urlRegTwo.test(data.input.value.trim());
 	if(valid_old){
-		let shorten=shortenUrl(url);
-		const inputUrl={
-			old_url : data.input.value,
-			shorten_url: shorten,
-		}
-		data.urlData.push(inputUrl);
-		saveToStorage('url',data.urlData);
-		let tempId= 'tempId';
-		data.urls_container.innerHTML += `
-		       <li class='display-flex justify-content-center'>
-		          <p class='me-2-md me-1'>${inputUrl.old_url} : ${inputUrl.shorten_url}</p>
-			      <button id='tempId' class='js-copy-btn' type='button'>Copy</button>
-	           </li>`;
-		addListener();
+        returnShort();
+	}else{
+		//error message beneath input 
 	}
 }
 
