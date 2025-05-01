@@ -11,6 +11,7 @@ function saveToStorage(set,data){
 }
 function clearLocalStorage(){
 	localStorage.clear();
+	location.reload();
  }
  function loadFromStorage(set,data){
 	data = JSON.parse(localStorage.getItem(set));  
@@ -25,17 +26,10 @@ const data={
 	urlData : JSON.parse(localStorage.getItem("url")) || [],
 	urls_container: document.getElementById('urls_container'),
 	shortUrl:'',
+	clearBtn : document.getElementById('clear_all'),
 }
-
 const fetchLink=()=>{
-	const api = new XMLHttpRequest();
-	const cleanUri ="https://cleanuri.com/api/v1/shorten";
-	api.open("POST", cleanUri);
-	api.send(data.input.value);
-	api.onload = (e) =>{
-	   data.shortUrl = api.responseText;
-	   console.log(data.shortUrl);
-	};
+	 return "temp";
 }
 
 const returnShort=()=>{
@@ -62,11 +56,13 @@ const validateURL=(event)=>{
         returnShort();
 	}else{
 		//error message beneath input 
+		//clipboard api.
 	}
 }
 
 const addListener =()=>{
 	data.url.addEventListener('click',validateURL);
+	data.clearBtn.addEventListener('click',clearLocalStorage);
 	[...document.querySelectorAll('.js-copy-btn')].forEach(btn=>btn.addEventListener('click',(e)=>{
         console.log('in js copybnt');
 		btn.textContent = (btn.textContent ==='Copy')? btn.textContent='Copied!' : btn.textContent='Copy';

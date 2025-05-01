@@ -1,0 +1,24 @@
+{
+  "name": "url-shortening-api-master",
+  "version": "1.0.0",
+  "description": "Needed to exchange urls with url shortening site",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmb347827/url-shortening-api-master.git"
+  },
+  "author": "Melissa Brownlee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmb347827/url-shortening-api-master/issues"
+  },
+  "homepage": "https://github.com/cmb347827/url-shortening-api-master#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
