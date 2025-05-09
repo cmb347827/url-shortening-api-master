@@ -10,10 +10,21 @@
 // No document object.
 
 // npm scripts, npm modules: install one called nodemon ,because it's pain in the ass keep restarting server,
-// added in package.json scripts 'start' line 9, can now run 'npm start' cmd in terminal.
+// added in package.json scripts 'start' line 9(node server.js), can now run 'npm start' cmd in terminal.
 //if  scripts 'dev' line instead do 'npm run dev'.
 //npm install nodemon , install it as a 'dev dependency' , which are dependencies which are not needed for production environment
 //so : npm install -D nodemon
+//never push node-modules folder as can be easily reproduced: npm install cmd will install dependencies
+//add .gitignore file : node_modules    
+//scripts 'start' line : nodemon server.js   (now constantly watching /updating)
+
+//.env file (add to gitignore) : add --env-file=.env  flag to scripts start line.  
+//do not add a semicolor after a .env file statement.
+
+//see server.js file
+//need to get currentpath (see fs module) , 
+//in common js , you would have some variables __filename , __dirname  available to use for the currentpath.
+//in es6 you can use url module.
 
 
 //common js
@@ -25,4 +36,12 @@
 //e6 modules.
 //import {allPosts} from './utilities.js';
 
-//console.log(allPosts());     
+//console.log(allPosts());      
+
+//change path to server.js in package.json
+
+//middleware are modules and functions that have access to the request /response objects.
+//middleware takes in req, res, and next (same with node.js or express)
+
+
+//node ./Node-course/osDemo.js
