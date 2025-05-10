@@ -17,3 +17,5 @@
 #node.js youtube crash course, adding this line so won't push node-modules folder
 node_modules
 .env
+# Local Netlify folder
+.netlify
