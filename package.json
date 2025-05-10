@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --env-file=.env ./Node-course/processDemo.js"
+    "start": "nodemon --env-file=.env ./Node-course/processDemo.js",
+    "build":"rmdir -rf ./dist/* && mkdir ./dist/css && cp ./index.html ./dist/index.html && cp ./url-shortening-api-master.css ./dist/css/style.css"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,6 @@
   "homepage": "https://github.com/cmb347827/url-shortening-api-master#readme",
   "devDependencies": {
     "nodemon": "^3.1.10"
-  }
+  },
+  "keywords": []
 }
