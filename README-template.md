@@ -69,6 +69,7 @@ Users should be able to:
  [url format guidelines](https://help.zscaler.com/zia/url-format-guidelines)
  [CORS anywhere](https://github.com/Rob--W/cors-anywhere/issues/301)
  [Reddit post git error](https://www.reddit.com/r/git/comments/krp2iy/couldnt_find_remote_ref_master/)
+ [nodemon global install](https://stackoverflow.com/questions/40359590/nodemon-command-is-not-recognized-in-terminal-for-node-js-server)
 
 
 

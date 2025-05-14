@@ -147,10 +147,7 @@ body {
          padding: 5px 15px;
          border-radius: 5px;
       }
-      .bluebutton-whitefont{
-        //@include font-color(map-get($colors,White),nth($fallback-colors,5));
-        //@include bg-color(map-get($colors,Soft Blue),nth($fallback-colors,1));
-      }
+      
       nav ul {
         list-style-type:none;
         width: 100%;
@@ -217,10 +214,7 @@ body {
               list-style-type:none;
             }
         }
-        &__thirdChild{
-          
-           
-        }   
+       
         &__fourthChild{
               background:hsl(257, 27%, 26%) url('./images/bg-boost-mobile.svg') top center/100% 100%;
               @include font-color(map-get($colors,White),nth($fallback-colors,8));

@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --env-file=.env ./Node-course/processDemo.js",
-    "build":"rmdir -rf ./dist/* && mkdir ./dist/css && cp ./index.html ./dist/index.html && cp ./url-shortening-api-master.css ./dist/css/style.css"
+    "build":"copy .\\index.html  dist\\index.html && copy .\\url-shortening-api-master.css dist\\style.css"
   },
   "repository": {
     "type": "git",
