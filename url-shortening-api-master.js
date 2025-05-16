@@ -42,10 +42,9 @@ const fetchLink=()=>{
 	    .then((resp)=>resp.json())
 		.then((content)=>{
             console.log(content[0]);
+			return content[0];
 		})
 		.catch((err)=>console.log(err));  
-
-	 return content;
 }
 function getFunc(event){
 	let url='./.netlify/functions/serverless';
@@ -59,7 +58,7 @@ function getFunc(event){
 }
 
 const returnShort=()=>{
-	let shorten=getFunc();
+	let shorten=fetchLink();
 	const inputUrl={
 		old_url : data.input.value,
 		shorten_url: shorten,
