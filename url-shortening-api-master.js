@@ -19,6 +19,9 @@ function clearLocalStorage(){
 
 //all data.
 const data={
+	apiURL: 'https://cleanuri.com/api/v1/shorten',
+	apiTestURL: '/api/ron/quotes',
+	apiTestURL2: 'https://ron-swanson-quotes.herokuapp.com/v2/quotes',
 	input: document.getElementById('url'),
 	url:document.getElementById('get_url'),
     //urlReg: /https:\/\/(\w{1,}\.){1,}\w{1,}/,
@@ -28,12 +31,35 @@ const data={
 	shortUrl:'',
 	clearBtn : document.getElementById('clear_all'),
 }
+
+const urlEncoded=()=>{
+	 console.log('in urlencoded');
+}
 const fetchLink=()=>{
-	 return "temp";
+     const url = urlEncoded();
+     
+	 fetch(data.apiTestURL)
+	    .then((resp)=>resp.json())
+		.then((content)=>{
+            console.log(content[0]);
+		})
+		.catch((err)=>console.log(err));  
+
+	 return content;
+}
+function getFunc(event){
+	let url='./.netlify/functions/serverless';
+	fetch(url)
+	    .then((resp)=>resp.json())
+		.then((content)=>{
+            console.log(content.msg);
+			content.msg;
+		})
+		.catch((err)=>console.log(err));  //16.51
 }
 
 const returnShort=()=>{
-	let shorten=fetchLink();
+	let shorten=getFunc();
 	const inputUrl={
 		old_url : data.input.value,
 		shorten_url: shorten,
