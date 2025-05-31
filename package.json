@@ -2,12 +2,12 @@
   "name": "url-shortening-api-master",
   "version": "1.0.0",
   "description": "Needed to exchange urls with url shortening site",
-  "main": "index.js",
+  "main": "url-shortening-api-master.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --env-file=.env ./Node-course/processDemo.js",
-    "build":"copy .\\index.html  dist\\index.html && copy .\\url-shortening-api-master.css dist\\style.css"
+    "build": "copy .\\index.html  dist\\index.html && copy .\\url-shortening-api-master.css dist\\style.css"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "devDependencies": {
     "nodemon": "^3.1.10"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "cmd": "^0.1.0"
+  }
 }

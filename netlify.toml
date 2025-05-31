@@ -7,15 +7,24 @@
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   # avoids CORS errors : https://localhost:8888:/api/ron/quotes
-  [[redirects]]
+
+ [[redirects]]
     from = "/api/ron/*"
     to = "https://ron-swanson-quotes.herokuapp.com/v2/:splat"
     status = 200
-  
-  ##[[redirects]]
-  # from ="/*",
-  # to="/index.html",
-  # status=200
+
+  [[redirects]]
+   from ="/netlify/functions"
+   to="./.netlify/functions/serverless"
+   status=200
+
+   [[redirects]]
+   from ="/api/fetchit"
+   to="./.netlify/functions/tryfetch" 
+   status=200
+
+[functions]
+    node_bundler = "esbuild"
 
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection

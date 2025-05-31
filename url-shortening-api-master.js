@@ -21,44 +21,80 @@ function clearLocalStorage(){
 const data={
 	apiURL: 'https://cleanuri.com/api/v1/shorten',
 	apiTestURL: '/api/ron/quotes',
-	apiTestURL2: 'https://ron-swanson-quotes.herokuapp.com/v2/quotes',
 	input: document.getElementById('url'),
 	url:document.getElementById('get_url'),
     //urlReg: /https:\/\/(\w{1,}\.){1,}\w{1,}/,
 	urlRegTwo:/[a-z]{3,255}:\/\/([a-z0-9]{0,63}(\.|\/|-|%20|\+)[a-z0-9]{0,63}){1,2024}/,
 	urlData : JSON.parse(localStorage.getItem("url")) || [],
 	urls_container: document.getElementById('urls_container'),
-	shortUrl:'',
+	encodedUrl:'',
+	hashId:'',
+	shortendUrl:'',
 	clearBtn : document.getElementById('clear_all'),
 }
 
 const urlEncoded=()=>{
-	 console.log('in urlencoded');
+	 //convert data.input.value to encoded url
+     return encodeURIComponent(data.input.value);
 }
-const fetchLink=()=>{
-     const url = urlEncoded();
-     
-	 fetch(data.apiTestURL)
-	    .then((resp)=>resp.json())
-		.then((content)=>{
-            console.log(content[0]);
-			return content[0];
-		})
-		.catch((err)=>console.log(err));  
+/*const fetchLink=()=>{
+	  //first netlify.toml redirect
+     let url = urlEncoded();
+      fetch(data.apiTestURL)
+          .then((resp)=>resp.json())
+        .then((content)=>{
+                console.log(content[0]);
+          url= content[0];
+        })
+        .catch((err)=>console.log(err));  
+      return url;
 }
 function getFunc(event){
-	let url='./.netlify/functions/serverless';
+	//url to use without redirect in netlify.toml file from line 15
+	//let url='./.netlify/functions/serverless';
+	//second netlify.toml file redirect
+	let url = '/netlify/functions';
 	fetch(url)
 	    .then((resp)=>resp.json())
 		.then((content)=>{
             console.log(content.msg);
 			content.msg;
 		})
-		.catch((err)=>console.log(err));  //16.51
+		.catch((err)=>console.log(err));  
+}*/
+function getFetchGet(){
+        fetch(url)
+		  .then((resp)=>resp.json())
+		  .then((content)=>{
+              data.shortendUrl  = data.encodedUrl + data.hashId;
+		})
+		.catch((err)=>console.log('in getfetchget',err));  
+}
+function getFetchPost(){
+	//third netlify.toml file redirect
+	let url = '/api/fetchit';
+	data.encodedUrl = urlEncoded();
+
+	fetch(url , {
+		method: 'POST',
+		body: JSON.stringify({
+			url: data.encodedUrl,
+		}),
+		headers: {
+			"Content-type": "application/json"
+		}
+		})
+	    .then((resp)=>resp.json())
+		.then((content)=>{
+			data.hashId = resp;
+		})
+		.catch((err)=>console.log('in getfetchpost:',err));  
 }
 
 const returnShort=()=>{
-	let shorten=fetchLink();
+	let shorten=getFetchPost();
+	
+	
 	const inputUrl={
 		old_url : data.input.value,
 		shorten_url: shorten,
